@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.9.1/cdn.js"></script>
+        <style>
+                    .scroller {
+            scrollbar-color: #a0aec0 #141b2a;
+            scrollbar-width: none !important;
+        }
+
+        /* width */
+        .scroller::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        /* Track */
+        .scroller::-webkit-scrollbar-track {
+            border-radius: 100vh;
+            background: #141b2a;
+        }
+
+        /* Handle */
+        .scroller::-webkit-scrollbar-thumb {
+            background: #181818;
+            border-radius: 100vh;
+            border: 1px solid #181818;
+        }
+
+        /* Handle on hover */
+        .scroller::-webkit-scrollbar-thumb:hover {
+            background: #a0aec0;
+        }
+
+        .scrollerlight {
+            scrollbar-color: #cfcfcf #ffffff;
+            scrollbar-width: none !important;
+        }
+
+        /* width */
+        .scrollerlight::-webkit-scrollbar {
+            width: 2px;
+            height: 6px;
+        }
+
+        /* Track */
+        .scrollerlight::-webkit-scrollbar-track {
+            border-radius: 100vh;
+            background: #ffffff;
+        }
+
+        /* Handle */
+        .scrollerlight::-webkit-scrollbar-thumb {
+            background: #cecece;
+            border-radius: 100vh;
+            border: 1px solid #cecece;
+        }
+
+        /* Handle on hover */
+        .scrollerlight::-webkit-scrollbar-thumb:hover {
+            background: #cecece;
+        }
+
+        </style>
+    </head>
+    <body>
+        <div class="md:flex">
+
+            <!-- sidebar -->
+            <div class="sidebar max-h-screen top-0 h-screen bg-gray-800 text-blue-100 w-64 fixed inset-y-0 left-0 transform transition duration-200 ease-in-out z-50"
+                x-data="{ open: true }" x-on:togglesidebar.window=" open = !open" x-show="true"
+                :class="open === true ? 'md:translate-x-0 md:sticky ':'-translate-x-full' ">
+                <header class=" h-[64px] py-2 shadow-lg px-4 md:sticky top-0 bg-gray-800 z-40">
+                    <!-- logo -->
+                    <a href="#" class="text-white space-x-2 group hover:text-white">
+                        <div class="text-center">
+                            <span class="text-2xl font-extrabold">Dashboard</span>
+                        </div>
+                    </a>
+                </header>
+                <!-- nav -->
+                <nav class="px-4 pt-4 scroller overflow-y-scroll max-h-[calc(100vh-64px)] p-5" x-data="{selected:'Tasks'}">
+                    <ul class="flex flex-col space-y-2">
+                        <!-- ITEM -->
+                        <li class="text-sm text-gray-500 ">
+                            <a href="#"
+                                class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700 ">
+                                <div class="pr-2">
+                                    <img src="icons8-computer-50.png" class="h-5 w-5"/>
+                                </div>
+                                <div>Dashboard </div>
+                            </a>
+                        </li>        
+                        <!-- Section Devider -->       
+                        <!-- ITEM -->
+                        <li class="text-sm text-gray-500 ">
+                            <a href="#"
+                                class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700 ">
+                                <div class="pr-2">
+                                    <img src="icons8-team-50.png" class="h-5 w-5"/>
+                                </div>
+                                <div>Team</div>
+                            </a>
+                        </li>        
+                        <!-- ITEM -->
+                        <li class="text-sm text-gray-500 ">
+                            <a href="#"
+                                class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700 ">
+                                <div class="pr-2">
+                                    <img src="icons8-folder-60.png" class="h-5 w-5"/>
+                                </div>
+                                <div>Projects</div>
+                            </a>
+                        </li>        
+                        <li class="text-sm text-gray-500 ">
+                            <a href="#"
+                                class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700 ">
+                                <div class="pr-2">
+                                    <img src="icons8-calender-64.png" class="h-5 w-5"/>
+                                </div>
+                                <div>Calendar</div>
+                            </a>
+                        </li>
+                        <li class="text-sm text-gray-500 ">
+                            <a href="#"
+                                class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700 ">
+                                <div class="pr-2">
+                                    <img src="icons8-file-50 (1).png" class="h-5 w-5"/>
+                                </div>
+                                <div>Documents</div>
+                            </a>
+                        </li>        
+                        <li class="text-sm text-gray-500 ">
+                            <a href="#"
+                                class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700 ">
+                                <div class="pr-2">
+                                    <img src="icons8-report-50.png" class="h-5 w-5"/>
+                                </div>
+                                <div>Reports</div>
+                            </a>
+                        </li>                        
+                    </ul>
+                    <ul class="flex flex-col space-y-2 bottom-0 absolute ">
+                        <p>Your Teams</p>
+                        <li class="text-sm text-gray-500 ">
+                            <a href="#"
+                                class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700 ">
+                                <div class="pr-2">
+                                    <img src="icons8-team-50.png" class="h-5 w-5"/>
+                                </div>
+                                <div>PW Skills </div>
+                            </a>
+                        </li> 
+                        <li class="text-sm text-gray-500 ">
+                            <a href="#"
+                                class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700 ">
+                                <div class="pr-2">
+                                    <img src="icons8-team-50.png" class="h-5 w-5"/>
+                                </div>
+                                <div>PW Labs </div>
+                            </a>
+                        </li> 
+                        <li class="text-sm text-gray-500 ">
+                            <a href="#"
+                                class="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700 ">
+                                <div class="pr-2">
+                                    <img src="icons8-team-50.png" class="h-5 w-5"/>
+                                </div>
+                                <div>PW-IOI </div>
+                            </a>
+                        </li> 
+                    </ul>
+                </nav>        
+            </div>
+            <!-- End sidebar -->        
+            <!-- content -->
+            <div class="flex-1 flex-col flex p-5">
+                <!-- Top navbar -->
+                <nav class="bg-gray-800 shadow-xl sticky w-full top-0 text-black z-50" x-data="{ mobilemenue: false }">
+                    <div class="mx-auto ">
+                        <div class="flex items-stretch justify-between h-16">
+                            <div class="flex items-center md:hidden">
+                                <div class="-mr-2 flex" x-data>
+                                    <!-- Mobile menu button -->
+                                    <button type="button" @click="$dispatch('togglesidebar')"
+                                        class="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                                        aria-controls="mobile-menu" aria-expanded="false">
+                                        <span class="sr-only">Open main menu</span>
+                                               
+                                        <img src="icons8-menu-50.png" lass="block h-6 w-6"  aria-hidden="true"/> 
+                                
+                                    </button>
+                                </div>
+                            </div>        
+                            <div class="flex items-center pl-6">      
+                                <!-- toggel sidebar -->
+                                <div class="text-white cursor-pointer hidden md:block" @click="$dispatch('togglesidebar')">
+                                    <img src="icons8-menu-50.png" lass=" h-6 w-6"  aria-hidden="true"/> 
+                                </div>        
+                            </div>
+                            <div class="hidden md:flex items-stretch">
+                                <!-- Profile Menu DT -->
+                                <div class="ml-4 flex md:ml-6 ">
+                                    <div class="relative flex justify-center items-center mr-4">
+                                        <div class="bg-gray-700 block hover:text-white p-1 rounded-full text-gray-400">
+                                            <span class="sr-only">View notifications</span>
+                                            <img src="icons8-search-50.png" class="h-5 w-5"/>
+                                        </div>
+                                    </div>
+                                    <div class="relative flex justify-center items-center mr-4">
+                                        <div class="bg-gray-700 block hover:text-white p-1 rounded-full text-gray-400">
+                                            <span class="sr-only">View notifications</span>
+                                            <img src="icons8-notification-50.png" class="h-5 w-5"/>
+                                        </div>
+                                    </div>        
+                                    <!-- Profile dropdown -->
+                                    <div class="relative bg-gray-700 px-4 text-gray-400 hover:text-white text-sm cursor-pointer"
+                                        x-data="{open: false}">
+                                        <div class="flex items-center min-h-full">        
+                                            <div class="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                                                id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                                                <img class="h-8 w-8 rounded-full" src="icons8-test-account-60.png"alt="">
+                                            </div>
+                                            <div class="flex flex-col ml-4">
+                                                <h4>Profile</h4>
+                                            </div>
+                                        </div>
+                                       
+                                    </div>
+        
+                                </div>
+                            </div>
+        
+        
+                            
+                        </div>
+                    </div>
+        
+                    
+                </nav>
+                <!-- End Top navbar -->
+                <main class="bg-white mb-auto flex-grow">
+                   
+                </main>
+            </div>
+        
+        </div>
+        
+        
+    </body>
+</html>
